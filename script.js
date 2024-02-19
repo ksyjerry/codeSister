@@ -7,7 +7,7 @@ const apiUrls = [
   ];
 
 const getLatestNews = async () => {
-  const url = new URL(apiUrls[2]);
+  const url = new URL(apiUrls[1]);
 
   const response = await fetch(url);
   const data = await response.json();
