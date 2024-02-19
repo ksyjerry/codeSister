@@ -16,11 +16,6 @@ const getLatestNews = async () => {
   console.log(newsList);
 };
 
-renderApiUrls();
-document
-  .getElementById("api-url-list")
-  .addEventListener("change", handleApiUrlChange);
-
 const render = () => {
   let newsHTML = "";
   newsList.map((news) => {
@@ -40,4 +35,4 @@ const render = () => {
 };
 
 getLatestNews();
-// render();
+
