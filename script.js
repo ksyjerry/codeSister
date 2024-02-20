@@ -3,9 +3,9 @@ let newsList = [];
 const apiUrls = [
   `https://newsapi.org/v2/top-headlines?country=us&apiKey=${api_key}`,
   `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines`,
-  `https://newsapijerrykim.netlify.app`,
+  `https://newsapijerrykim.netlify.app/top-headlines`,
 ];
-const apiUrl = apiUrls[0];
+const apiUrl = apiUrls[2];
 
 const menus = document.querySelectorAll(".menus button");
 console.log(menus);
@@ -17,22 +17,17 @@ const getNews = async (url) => {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    
 
-    if (response.status ===200){
-      if(data.articles.length <1) {
-        throw new Error("No result for this search")
-
+    if (response.status === 200) {
+      if (data.articles.length < 1) {
+        throw new Error("No result for this search");
       }
       newsList = data.articles;
-      
+
       render();
     } else {
       throw new Error(data.message);
-
     }
-
-   
   } catch (error) {
     console.log(error.message);
     errorRender(error.message);
@@ -84,14 +79,12 @@ const render = () => {
   document.getElementById("news-board").innerHTML = newsHTML;
 };
 
-  const errorRender = (message) => {
+const errorRender = (message) => {
   const errorHTML = `<div class="alert alert-danger" role="alert">
     ${message}
-  </div>`
+  </div>`;
 
   document.getElementById("news-board").innerHTML = errorHTML;
-
-  }
-
+};
 
 getLatestNews();
