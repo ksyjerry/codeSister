@@ -5,7 +5,7 @@ const apiUrls = [
   `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines`,
   `https://newsapijerrykim.netlify.app`,
 ];
-const apiUrl = apiUrls[1];
+const apiUrl = apiUrls[0];
 
 const menus = document.querySelectorAll(".menus button");
 console.log(menus);
