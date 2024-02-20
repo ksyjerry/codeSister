@@ -1,37 +1,64 @@
 const api_key = "1eb650d9dd204edba0e8a861f2f158f4";
 let newsList = [];
 const apiUrls = [
-    `https://newsapi.org/v2/top-headlines?country=us&apiKey=${api_key}`,
-    `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines`,
-    `https://newsapijerrykim.netlify.app`,
-  ];
+  `https://newsapi.org/v2/top-headlines?country=us&apiKey=${api_key}`,
+  `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines`,
+  `https://newsapijerrykim.netlify.app`,
+];
+const apiUrl = apiUrls[1];
 
-  const menus = document.querySelectorAll(".menus button");
-  console.log(menus);
-  menus.forEach(menu=>menu.addEventListener("click",(event)=>getNewsByCategory(event)))
+const menus = document.querySelectorAll(".menus button");
+console.log(menus);
+menus.forEach((menu) =>
+  menu.addEventListener("click", (event) => getNewsByCategory(event))
+);
 
-const getLatestNews = async () => {
-  const url = new URL(apiUrls[2]);
+const getNews = async (url) => {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    
 
-  const response = await fetch(url);
-  const data = await response.json();
-  newsList = data.articles;
-  render()
-  console.log(newsList);
+    if (response.status ===200){
+      if(data.articles.length <1) {
+        throw new Error("No result for this search")
+
+      }
+      newsList = data.articles;
+      
+      render();
+    } else {
+      throw new Error(data.message);
+
+    }
+
+   
+  } catch (error) {
+    console.log(error.message);
+    errorRender(error.message);
+  }
 };
 
-const getNewsByCategory = async (event)=> {
-const category = event.target.textContent.toLowerCase();
-console.log("category", category);
-const url = new URL(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${api_key}`);
+const getLatestNews = async () => {
+  const url = new URL(apiUrl);
 
-const response = await fetch(url);
-const data = await response.json();
-console.log('data',data);
+  getNews(url);
+};
+const getNewsByKeyWord = async () => {
+  const keyword = document.getElementById("search-input").value;
+  console.log(keyword);
+  const url = new URL(`${apiUrl}?q=${keyword}`);
 
-}
+  getNews(url);
+};
 
+const getNewsByCategory = async (event) => {
+  const category = event.target.textContent.toLowerCase();
+  console.log("category", category);
+  const url = new URL(`${apiUrl}?category=${category}`);
 
+  getNews(url);
+};
 
 const render = () => {
   let newsHTML = "";
@@ -57,5 +84,14 @@ const render = () => {
   document.getElementById("news-board").innerHTML = newsHTML;
 };
 
-getLatestNews();
+  const errorRender = (message) => {
+  const errorHTML = `<div class="alert alert-danger" role="alert">
+    ${message}
+  </div>`
 
+  document.getElementById("news-board").innerHTML = errorHTML;
+
+  }
+
+
+getLatestNews();
