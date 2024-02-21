@@ -5,7 +5,7 @@ const apiUrls = [
   `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines`,
   `https://newsapijerrykim.netlify.app/top-headlines`,
 ];
-const apiUrl = apiUrls[1];
+const apiUrl = apiUrls[2];
 let totalResults = 0;
 let page = 1;
 const pageSize = 10;
