@@ -1,87 +1,135 @@
-.head-line{
-    margin-top: 2em;
-    display: flex;
-    justify-content: center;
-
-
+.head-line {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
 }
 
-.head-line svg{
-
-    width: 430px;
-
+.head-line svg {
+  width: 430px;
 }
 
 .menus {
-    margin-top: 1em;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    border-top: 1px solid #ebebeb;
-    border-bottom: 4px solid black;
-    
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 4px solid black;
 }
 
-.menus button{
-    margin: 0em;
-    padding: 1em;
-    font-size: 0.9em;
-    font-weight: 500;
-    color: #000;
-    background-color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.menus button {
+  margin: 0em;
+  padding: 1em;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.menus button:hover{
-    background-color: #000;
-    color: #fff;
+.menus button:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .news-image {
-    max-width: 100%;
-    max-height: 250px;
+  max-width: 100%;
+  max-height: 250px;
 }
 
 .news {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    border-bottom: 1px solid black ;
-    display: flex;
-
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid black;
+  display: flex;
 }
 
-.news div{
-    margin: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
-    text-align: left;
+.news div {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  text-align: left;
 }
 
-.news img{
-    max-width: 100%;
-    max-height: 250px;
+.news img {
+  max-width: 100%;
+  max-height: 250px;
 }
 
-#news-board{
-    margin-top: 1em;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+#news-board {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .pagination {
-    cursor: pointer;
-    font-size: 1.2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #000;
-    color: #fff;
+  cursor: pointer;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+}
+
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: burlywood;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.side-menu-list button {
+  margin: 5px;
+  border: none;
+  background: none;
+  width: 120px;
+}
+
+.side-menu .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  border: none;
+  background: none;
+}
+
+.side-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-menu-list button:hover {
+  background-color: beige;
+  border-radius: 3px;
+}
+
+.container > div {
+  margin-top: 1em;
+}
+
+i {
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+#input-area {
+  display: none;
+  padding-left: 0.5em;
 }

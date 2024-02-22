@@ -15,11 +15,31 @@
   </head>
   <body>
     <section class="container">
-        <div>
-            <input id= "search-input" type="text">
-            <button onclick="getNewsByKeyWord()">검색</button>
-
+      <div>
+        <div class="side-menu" id="mySidenav">
+          <button class="closebtn" onclick="closeNav()">&times;</button>
+          <div class="side-menu-list" id="menu-list">
+            <button class="button">Business</button>
+            <button class="button">Entertainment</button>
+            <button class="button">General</button>
+            <button class="button">Health</button>
+            <button class="button">Science</button>
+            <button class="button">Sport</button>
+            <button class="button">Technology</button>
+          </div>
         </div>
+
+        <i class="fas fa-bars hide icon-button" onclick="openNav()">📃</i>
+
+        <i class="fas fa-search icon-button" onclick="openSearchBox()">🔎</i>
+        <span id="input-area">
+          <input type="text" id="search-input" placeholder="search" />
+          <button class="search-button" onclick="getNewsByKeyWord()">Go</button>
+        </span>
+
+        <!-- <input id= "search-input" type="text">
+            <button onclick="getNewsByKeyWord()">검색</button> -->
+      </div>
       <section>
         <div class="head-line">
           <svg viewBox="0 0 184 25" fill="#000" aria-hidden="true">
@@ -37,42 +57,14 @@
           <button class="button">Science</button>
           <button class="button">Sport</button>
           <button class="button">Technology</button>
-
         </div>
       </section>
 
-      <section id="news-board">
-        <div class="row news">
-          <div class="col-lg-4">
-            <img
-              class="news-image"
-              src="https://i.namu.wiki/i/w11dbZZeomJI4bD3_KItw3vq7tgglcM1YQA_xHULxMsixPpY1S7KcB8WrEFhJNuSuejiiQkicGKMH12JvpUqBQ.webp"
-              class="card-img-top"
-              alt="..."
-            />
-          </div>
-
-          
-
-          <div class="col-lg-8">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-          </div>
-
-          <div></div>
-        </div>
-      </section>
+      <section id="news-board"></section>
 
       <nav aria-label="Page navigation example">
-        <ul class="pagination">
-
-        </ul>
+        <ul class="pagination"></ul>
       </nav>
-
     </section>
 
     <script
